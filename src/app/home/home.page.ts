@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { WordpressService } from '../wordpress.service';
 import { LoadingController } from '@ionic/angular';
 
 @Component({
@@ -15,7 +15,7 @@ export class HomePage {
     date: string;
   }[] = [];
   constructor(
-    public http: HttpClient,
+    public wordpress: WordpressService,
     public loadingController: LoadingController,
   ) {}
 
@@ -27,7 +27,7 @@ export class HomePage {
       await loading.present();
     }
 
-    this.http.get('https://public-api.wordpress.com/rest/v1.1/sites/ionicjp.wordpress.com/posts/')
+    this.wordpress.getPosts()
       .subscribe(data => {
         this.posts = data['posts'];
         loading.dismiss();
