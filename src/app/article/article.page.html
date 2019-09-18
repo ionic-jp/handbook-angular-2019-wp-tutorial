@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>記事詳細</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngIf="!post.ID">
+      <ion-card-header>
+        <ion-card-subtitle><ion-skeleton-text animated="true"></ion-skeleton-text></ion-card-subtitle>
+        <ion-card-title><ion-skeleton-text animated="true"></ion-skeleton-text></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <ion-card *ngIf="post.ID">
+      <ion-card-header>
+        <ion-card-subtitle>{{post.date | date: "yyyy年MM月dd日"}}</ion-card-subtitle>
+        <ion-card-title>{{post.title}}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <div class="ion-padding" [innerHTML]="post.content"></div>
+</ion-content>
