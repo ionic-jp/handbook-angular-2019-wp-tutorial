@@ -8,7 +8,7 @@
 
 <ion-content>
   <ion-card *ngFor="let p of posts; trackBy: trackByFn"
-            routerLink="/article/{{p.ID}}">
+            routerLink="/home/{{p.ID}}">
     <app-wp-head title="{{p.title}}" date="{{p.date}}"></app-wp-head>
   </ion-card>
 </ion-content>
