@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { WordpressService } from '../wordpress.service';
+import { IPost } from '../interfaces/post';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,7 @@ import { WordpressService } from '../wordpress.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  posts: {
-    ID: number;
-    title: string;
-    content: string;
-    date: string;
-  }[] = [];
+  posts: IPost[] = [];
   constructor(
     public wordpress: WordpressService,
     public loadingController: LoadingController,

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { WordpressService } from '../wordpress.service';
+import { IPost } from '../interfaces/post';
 
 @Component({
   selector: 'app-article',
@@ -10,12 +10,7 @@ import { WordpressService } from '../wordpress.service';
 })
 export class ArticlePage implements OnInit {
   ID: number;
-  post: {
-    ID: number;
-    title: string;
-    content: string;
-    date: string;
-  } = {
+  post: IPost = {
     ID: null,
     title: null,
     content: null,
