@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let p of posts">
+  <ion-card *ngFor="let p of posts" routerLink="/article/{{p.ID}}">
     <ion-card-header>
       <ion-card-subtitle>
         {{p.date | date: "yyyy年MM月dd日"}}
