@@ -23,11 +23,17 @@ export class HomePage {
     const loading = await this.loadingController.create({
       message: 'Loading...',
     });
-    await loading.present();
+    if (!this.posts.length) {
+      await loading.present();
+    }
     this.http.get('https://public-api.wordpress.com/rest/v1.1/sites/ionicjp.wordpress.com/posts/')
       .subscribe(data => {
         this.posts = data['posts'];
         loading.dismiss();
       });
+  }
+
+  trackByFn(index, item): number {
+    return item.ID;
   }
 }
